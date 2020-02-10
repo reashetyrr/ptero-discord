@@ -2,8 +2,8 @@ FROM ubuntu:18.04
 
 LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 
-RUN apt update \
-RUN  apt upgrade -y
+RUN apt update
+RUN apt upgrade -y
 
 RUN apt install -y software-properties-common build-essential libssl-dev
 RUN add-apt-repository ppa:deadsnakes/ppa
