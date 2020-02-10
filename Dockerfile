@@ -10,7 +10,7 @@ RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update
 RUN apt install -y curl
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-RUN export NVM_DIR="$HOME/.nvm" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh
+RUN export NVM_DIR="$HOME/.nvm" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 RUN nvm install node 
 RUN nvm install-latest-npm 
 RUN apt install -y python3.7 python3-pip 
