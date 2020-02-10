@@ -8,6 +8,7 @@ RUN apt update \
 RUN apt install -y software-properties-common build-essential libssl-dev \
     && add-apt-repository ppa:deadsnakes/ppa \
     && apt update \
+	&& apt install -y curl \
     && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash \
     && nvm install node \
     && nvm install-latest-npm \
