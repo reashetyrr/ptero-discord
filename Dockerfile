@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:bullseye-slim
 
 LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 
