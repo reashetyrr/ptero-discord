@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3:latest AS miniconda
+FROM continuumio/miniconda3
 
 LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 
@@ -11,12 +11,9 @@ RUN apt update
 #RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 #RUN apt install -y nodejs
 
-SHELL [ "/bin/bash", "-l", "-c" ]
-RUN source ~/.bashrc \
- && conda create -q --name testy \
+RUN conda create -q --name testy \
  && conda activate testy
 
-SHELL [ "/bin/sh" ]
 RUN conda install -c conda-forge nodejs \
  && npm install -g --no-cache discord.js quick.db 
 RUN python3.7 -m pip install pip 
