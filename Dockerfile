@@ -4,7 +4,6 @@ LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-ENV NVM_DIR /usr/local/nvm
 ENV NODE_VERSION 12.15.0
 
 RUN apt update
@@ -15,7 +14,7 @@ RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update
 RUN apt install -y curl
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-RUN source $NVM_DIR/nvm.sh \
+RUN source ~/.profile \
     && nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
     && nvm use default
