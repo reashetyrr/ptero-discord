@@ -14,9 +14,8 @@ RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update
 RUN apt install -y curl
 RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-RUN nvm install $NODE_VERSION \
-    && nvm alias default $NODE_VERSION \
-    && nvm use default
+RUN nvm install \
+    && nvm use
 	
 RUN apt install -y python3.7 python3-pip 
 RUN mkdir /node_modules 
