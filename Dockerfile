@@ -23,7 +23,7 @@ RUN source ~/.bashrc \
 RUN mkdir /node_modules 
 RUN npm install --prefix / discord.js 
 RUN python3.7 -m pip install pip 
-RUN pip3 install discord.py 
+RUN pip install discord.py 
 RUN useradd -d /home/container -m container
 
 USER container
