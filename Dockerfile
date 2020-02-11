@@ -3,7 +3,7 @@ FROM continuumio/miniconda3:latest AS miniconda
 LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 
 SHELL [ "/bin/bash", "-l", "-c" ]
-
+USER container
 
 RUN apt update
 RUN apt upgrade -y
@@ -24,7 +24,7 @@ RUN pip install discord.py
 RUN npm install -g discord.js quick.db
 RUN useradd -d /home/container -m container
 
-USER container
+
 ENV User=container HOME=/home/container
 
 WORKDIR /home/container
