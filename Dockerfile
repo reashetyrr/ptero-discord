@@ -18,7 +18,7 @@ RUN nvm install stable \
 
 RUN source ~/.bashrc \
  && conda create -q --name testy \
- && conda activate testy \
+ && conda activate testy
  
 RUN mkdir /node_modules 
 RUN npm install --prefix / discord.js 
