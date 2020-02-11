@@ -16,7 +16,7 @@ RUN nvm install stable \
     && nvm use stable
 
 
-RUN source /home/container/.bashrc \
+RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy \
  
