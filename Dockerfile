@@ -19,7 +19,7 @@ RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
  
-RUN npm install --prefix / discord.js 
+RUN npm install --prefix / discord.js quick.db
 RUN python3.7 -m pip install pip 
 RUN pip install discord.py 
 RUN useradd -d /home/container -m container
