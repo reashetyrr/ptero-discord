@@ -11,6 +11,8 @@ RUN apt update
 #RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 #RUN apt install -y nodejs
 
+RUN conda init bash
+
 RUN conda create -q --name testy \
  && conda activate testy
 
