@@ -11,16 +11,14 @@ RUN apt upgrade -y
 RUN apt install -y software-properties-common build-essential libssl-dev
 RUN apt update
 RUN apt install -y curl
-RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-RUN nvm install stable \
-    && nvm use stable
+RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
+RUN apt-get install -y nodejs
 
 
 RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
  
-RUN mkdir /node_modules 
 RUN npm install --prefix / discord.js 
 RUN python3.7 -m pip install pip 
 RUN pip install discord.py 
