@@ -4,6 +4,8 @@ LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 
 SHELL [ "/bin/bash", "-l", "-c" ]
 
+USER root
+
 RUN apt update
 RUN apt upgrade -y
 
