@@ -15,15 +15,7 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh 
 RUN nvm install stable \
     && nvm use stable
 
-#COPY --from=miniconda /opt/conda /opt/conda
-# Set correct permissions
-#RUN chown -R container: /opt/conda
 
-#RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
-    echo "conda activate base" >> ~/.bashrc
-
-
-# give bash access to Anaconda, then normal anaconda commands, e.g. (-q: quiet, -y: answer yes)
 RUN source /home/container/.bashrc \
  && conda create -q --name testy \
  && conda activate testy \
