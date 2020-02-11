@@ -12,7 +12,7 @@ RUN apt install -y software-properties-common build-essential libssl-dev
 RUN apt update
 RUN apt install -y curl
 RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
-RUN apt-get install -y nodejs
+RUN apt install -y nodejs
 
 
 RUN source ~/.bashrc \
