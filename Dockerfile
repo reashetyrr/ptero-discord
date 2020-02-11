@@ -1,4 +1,4 @@
-FROM continuumio/miniconda3
+FROM continuumio/miniconda3:4.6.14
 
 LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 
@@ -11,12 +11,10 @@ RUN apt update
 #RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 #RUN apt install -y nodejs
 
-RUN conda init --yes
-
 RUN conda create -q --name testy \
  && conda activate testy
 
-RUN conda install -c conda-forge nodejs \
+RUN conda install --yes -c conda-forge nodejs \
  && npm install -g --no-cache discord.js quick.db 
 RUN python3.7 -m pip install pip 
 RUN pip install discord.py 
