@@ -18,10 +18,7 @@ RUN nvm install stable \
 #COPY --from=miniconda /opt/conda /opt/conda
 # Set correct permissions
 #RUN chown -R container: /opt/conda
-#   New terminals will have conda active
-# If nvidia's Docker image has no .bashrc
-# COPY --from=miniconda /home/container/.bashrc
-# else
+
 #RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
 
