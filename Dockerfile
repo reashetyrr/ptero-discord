@@ -4,7 +4,6 @@ LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 
 SHELL [ "/bin/bash", "-l", "-c" ]
 
-ENV NODE_VERSION 12.15.0
 
 RUN apt update
 RUN apt upgrade -y
