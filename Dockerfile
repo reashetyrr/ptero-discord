@@ -12,7 +12,7 @@ RUN apt install -y software-properties-common build-essential libssl-dev
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update
 RUN apt install -y curl
-RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
 RUN nvm install \
     && nvm use
 	
