@@ -15,14 +15,14 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh 
 RUN nvm install stable \
     && nvm use stable
 
-COPY --from=miniconda /opt/conda /opt/conda
+#COPY --from=miniconda /opt/conda /opt/conda
 # Set correct permissions
-RUN chown -R container: /opt/conda
+#RUN chown -R container: /opt/conda
 #   New terminals will have conda active
 # If nvidia's Docker image has no .bashrc
-# COPY --from=miniconda /home/$SETUSER/.bashrc
+# COPY --from=miniconda /home/container/.bashrc
 # else
-RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+#RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
 
 
