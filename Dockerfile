@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+SHELL [ "/bin/bash", "-l", "-c" ]
 
 ENV NODE_VERSION 12.15.0
 
@@ -13,9 +13,8 @@ RUN apt install -y software-properties-common build-essential libssl-dev
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt update
 RUN apt install -y curl
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-RUN source ~/.profile \
-    && nvm install $NODE_VERSION \
+RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+RUN nvm install $NODE_VERSION \
     && nvm alias default $NODE_VERSION \
     && nvm use default
 	
