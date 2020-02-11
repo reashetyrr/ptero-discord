@@ -12,8 +12,7 @@ RUN apt install -y software-properties-common build-essential libssl-dev
 RUN apt update
 RUN apt install -y curl
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
-RUN nvm install \
-    && nvm use
+RUN nvm install
 
 COPY --from=miniconda /opt/conda /opt/conda
 # Set correct permissions
