@@ -2,10 +2,6 @@ FROM continuumio/miniconda3:latest AS miniconda
 
 LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 
-SHELL [ "/bin/bash", "-l", "-c" ]
-
-USER root
-
 RUN apt update
 RUN apt upgrade -y
 
@@ -15,11 +11,12 @@ RUN apt update
 #RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 #RUN apt install -y nodejs
 
-
+SHELL [ "/bin/bash", "-l", "-c" ]
 RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
 
+SHELL [ "/bin/sh" ]
 RUN conda install -c conda-forge nodejs \
  && npm install -g --no-cache discord.js quick.db 
 RUN python3.7 -m pip install pip 
