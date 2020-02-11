@@ -15,6 +15,24 @@ RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/master/install.sh 
 RUN nvm install \
     && nvm use
 
+COPY --from=miniconda /opt/conda /opt/conda
+# Set correct permissions
+RUN chown -R container: /opt/conda
+#   New terminals will have conda active
+# If nvidia's Docker image has no .bashrc
+# COPY --from=miniconda /home/$SETUSER/.bashrc
+# else
+RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+    echo "conda activate base" >> ~/.bashrc
+
+# switch shell sh (default in Linux) to bash
+SHELL ["/bin/bash", "-c"]
+
+# give bash access to Anaconda, then normal anaconda commands, e.g. (-q: quiet, -y: answer yes)
+RUN source /home/container/.bashrc \
+ && conda create -q --name testy \
+ && conda activate testy \
+ 
 RUN mkdir /node_modules 
 RUN npm install --prefix / discord.js 
 RUN python3.7 -m pip install pip 
