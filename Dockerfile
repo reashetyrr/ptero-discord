@@ -19,9 +19,9 @@ RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
  
-RUN npm install -g discord.js quick.db
 RUN python3.7 -m pip install pip 
 RUN pip install discord.py 
+RUN npm install -g discord.js quick.db
 RUN useradd -d /home/container -m container
 
 USER container
