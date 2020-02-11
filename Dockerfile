@@ -24,8 +24,6 @@ RUN chown -R container: /opt/conda
 RUN echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
     echo "conda activate base" >> ~/.bashrc
 
-# switch shell sh (default in Linux) to bash
-SHELL ["/bin/bash", "-c"]
 
 # give bash access to Anaconda, then normal anaconda commands, e.g. (-q: quiet, -y: answer yes)
 RUN source /home/container/.bashrc \
