@@ -7,11 +7,9 @@ RUN apt upgrade -y
 
 RUN apt install -y software-properties-common build-essential libssl-dev make
 RUN apt update
-#RUN apt install -y curl
-#RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
-#RUN apt install -y nodejs
 
 SHELL [ "/bin/bash", "-l", "-c" ]
+USER root
 RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
