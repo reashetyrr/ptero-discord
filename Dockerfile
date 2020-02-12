@@ -11,14 +11,15 @@ RUN apt update
 #RUN curl -sL https://deb.nodesource.com/setup_13.x | bash -
 #RUN apt install -y nodejs
 
-RUN conda init bash
+SHELL [ "/bin/bash", "-l", "-c" ]
+RUN source ~/.bashrc \
+ && conda create -q --name testy \
+ && conda activate testy
 
-RUN /bin/bash -c ". conda create -q --name testy \
- && conda activate testy \
- && conda install --yes -c conda-forge nodejs \
- && npm install -g --no-cache discord.js quick.db \
- && python3.7 -m pip install pip \
- && pip install discord.py "
+RUN conda install -c conda-forge nodejs \
+ && npm install --global --no-cache discord.js node-gyp quick.db 
+RUN python3.7 -m pip install pip 
+RUN pip install discord.py 
 RUN useradd -d /home/container -m container
 
 USER container
