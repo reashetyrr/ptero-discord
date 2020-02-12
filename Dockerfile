@@ -13,13 +13,12 @@ RUN apt update
 
 RUN conda init bash
 
-RUN conda create -q --name testy \
- && conda activate testy
-
-RUN conda install --yes -c conda-forge nodejs \
- && npm install -g --no-cache discord.js quick.db 
-RUN python3.7 -m pip install pip 
-RUN pip install discord.py 
+RUN /bin/bash -c ". conda create -q --name testy \
+ && conda activate testy \
+ && conda install --yes -c conda-forge nodejs \
+ && npm install -g --no-cache discord.js quick.db \
+ && python3.7 -m pip install pip \
+ && pip install discord.py "
 RUN useradd -d /home/container -m container
 
 USER container
