@@ -8,8 +8,10 @@ RUN apt upgrade -y
 RUN apt install -y software-properties-common build-essential libssl-dev make
 RUN apt update
 
+RUN useradd -d /home/container -m container
 SHELL [ "/bin/bash", "-l", "-c" ]
-USER root
+USER container
+ENV User=container HOME=/home/container
 RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
@@ -18,9 +20,5 @@ RUN conda install -c conda-forge nodejs \
  && npm install --global --no-cache discord.js node-gyp quick.db 
 RUN python3.7 -m pip install pip 
 RUN pip install discord.py 
-RUN useradd -d /home/container -m container
-
-USER container
-ENV User=container HOME=/home/container
 
 WORKDIR /home/container
