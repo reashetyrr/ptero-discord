@@ -16,9 +16,10 @@ RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
 
-RUN conda install -c conda-forge nodejs
+RUN conda install -c conda-forge nodejs \
+ && npm install discord.js
 RUN python3.7 -m pip install pip 
-
+RUN pip install discord.py 
 
 WORKDIR /home/container
 RUN echo 'Server setup'
