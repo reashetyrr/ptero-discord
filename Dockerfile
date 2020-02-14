@@ -22,3 +22,4 @@ RUN python3.7 -m pip install pip
 RUN pip install discord.py 
 
 WORKDIR /home/container
+RUN echo 'Server setup'
