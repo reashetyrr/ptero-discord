@@ -2,11 +2,10 @@ FROM continuumio/miniconda3:4.6.14
 
 LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 
-RUN apt update
-RUN apt upgrade -y
-
-RUN apt install -y software-properties-common build-essential libssl-dev make gcc
-RUN apt update
+RUN apt update \
+ && apt upgrade -y \
+ && apt install -y software-properties-common build-essential libssl-dev make gcc \
+ 77 apt update
 
 RUN useradd -d /home/container -m container
 SHELL [ "/bin/bash", "-l", "-c" ]
@@ -19,10 +18,11 @@ RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
 
-RUN conda install -c conda-forge nodejs
-RUN npm install --unsafe-perm --global discord.js
-RUN python3.7 -m pip install pip 
-RUN pip install discord.py 
+RUN conda install -c conda-forge nodejs \ 
+ && npm install --unsafe-perm --global discord.js
+ 
+RUN python3.7 -m pip install pip \
+ && pip install discord.py 
 
 USER container
 ENV User=container HOME=/home/container
