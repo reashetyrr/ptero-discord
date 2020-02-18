@@ -16,7 +16,7 @@ RUN source ~/.bashrc \
  && conda activate testy
 
 RUN conda install -c conda-forge nodejs \
- && npm install --global discord.js node-gyp quick.db
+ && npm install --unsafe --global discord.js node-gyp quick.db
 RUN python3.7 -m pip install pip 
 RUN pip install discord.py 
 
