@@ -5,7 +5,7 @@ LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 RUN apt update
 RUN apt upgrade -y
 
-RUN apt install -y software-properties-common build-essential libssl-dev make
+RUN apt install -y software-properties-common build-essential libssl-dev make gcc
 RUN apt update
 
 RUN useradd -d /home/container -m container
@@ -16,7 +16,7 @@ RUN source ~/.bashrc \
  && conda activate testy
 
 RUN conda install -c conda-forge nodejs \
- && npm install --global discord.js
+ && npm install --global discord.js node-gyp quick.db
 RUN python3.7 -m pip install pip 
 RUN pip install discord.py 
 
