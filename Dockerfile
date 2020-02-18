@@ -15,6 +15,7 @@ RUN mkdir /home/container/.npm-global
 ENV PATH=/home/container/.npm-global/bin:$PATH
 ENV NPM_CONFIG_PREFIX=/home/container/.npm-global
 ENV NODE_GYP_FORCE_PYTHON=/opt/conda/bin/python
+
 RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
