@@ -18,6 +18,7 @@ RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
 
+RUN conda install python=3.7
 RUN conda install -c conda-forge nodejs \
  && npm install --unsafe-perm --global discord.js node-gyp quick.db
 RUN python3.7 -m pip install pip 
@@ -27,4 +28,3 @@ USER container
 ENV User=container HOME=/home/container
 
 WORKDIR /home/container
-RUN echo 'Server setup'
