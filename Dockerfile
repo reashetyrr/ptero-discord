@@ -14,6 +14,7 @@ SHELL [ "/bin/bash", "-l", "-c" ]
 RUN mkdir /home/container/.npm-global
 ENV PATH=/home/container/.npm-global/bin:$PATH
 ENV NPM_CONFIG_PREFIX=/home/container/.npm-global
+ENV NPM_CONFIG_CACHE=/home/container/.npm-cache
 RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
