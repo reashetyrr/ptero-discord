@@ -22,10 +22,9 @@ RUN source ~/.bashrc \
 
 RUN conda install -c conda-forge nodejs
 RUN npm install npm -g
-RUN node-gyp -v
 RUN npm explore npm -g -- npm install node-gyp@6.1.0
 RUN node-gyp -v
-RUN npm install --unsafe-perm --global --save discord.js quick.db
+RUN npm install --unsafe-perm --global --save discord.js node-gyp@6.1.0 quick.db
 RUN python3.7 -m pip install pip 
 RUN pip install discord.py 
 
