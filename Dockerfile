@@ -21,10 +21,7 @@ RUN source ~/.bashrc \
  && conda activate testy
 
 RUN conda install -c conda-forge nodejs
-RUN npm install npm -g
-RUN npm explore npm -g -- npm install node-gyp@6.1.0
-RUN npm install --unsafe-perm --global --save discord.js node-gyp@6.1.0
-RUN npm install quick.db
+RUN npm install --unsafe-perm --global discord.js
 RUN python3.7 -m pip install pip 
 RUN pip install discord.py 
 
