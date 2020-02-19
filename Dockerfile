@@ -5,7 +5,7 @@ LABEL author="Phantom Developers" maintainer="phantomDevelopers"
 RUN apt update \
  && apt upgrade -y \
  && apt install -y software-properties-common build-essential libssl-dev make gcc \
- 77 apt update
+ && apt update
 
 RUN useradd -d /home/container -m container
 SHELL [ "/bin/bash", "-l", "-c" ]
