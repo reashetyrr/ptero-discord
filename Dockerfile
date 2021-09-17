@@ -18,7 +18,7 @@ RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
 
-RUN conda install -c conda-forge nodejs \ 
+RUN conda install -c conda-forge nodejs nodeenv \ 
  && npm install --unsafe-perm --global discord.js
  
 RUN python3.7 -m pip install pip \
