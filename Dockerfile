@@ -1,6 +1,6 @@
 FROM continuumio/miniconda3:latest
 
-LABEL author="Phantom Developers" maintainer="phantomDevelopers"
+LABEL author="Reashetyrr" maintainer="Reashetyrr"
 
 RUN apt update \
  && apt upgrade -y \
