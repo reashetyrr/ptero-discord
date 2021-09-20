@@ -4,7 +4,7 @@ LABEL author="Reashetyrr" maintainer="Reashetyrr"
 
 RUN apt update \
  && apt upgrade -y \
- && apt install -y software-properties-common build-essential libssl-dev make gcc \
+ && apt install -y software-properties-common build-essential libssl-dev make gcc nodeenv \
  && apt update
 
 RUN useradd -d /home/container -m container
@@ -18,10 +18,12 @@ RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
 
+RUN nodenv init && nodeenv install latest
+
 RUN conda install -c conda-forge nodeenv \ 
  && npm install --unsafe-perm --global discord.js
  
-RUN nodeenv init && nodeenv install latest
+
 RUN pip3 install discord.py 
 
 USER container
