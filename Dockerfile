@@ -18,11 +18,11 @@ RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
 
-RUN conda install -c conda-forge nodejs nodeenv \ 
+RUN conda install -c conda-forge nodeenv \ 
  && npm install --unsafe-perm --global discord.js
  
-RUN python3.7 -m pip install pip \
- && pip install discord.py 
+RUN nodeenv init && nodeenv install latest
+RUN pip3 install discord.py 
 
 USER container
 ENV User=container HOME=/home/container
