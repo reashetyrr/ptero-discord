@@ -14,7 +14,7 @@ RUN mkdir /home/container/.npm-global
 ENV PATH=/home/container/.npm-global/bin:$PATH
 ENV NPM_CONFIG_PREFIX=/home/container/.npm-global
 
-RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo bash - 
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - 
 RUN apt install nodejs 
 
 RUN source ~/.bashrc \
