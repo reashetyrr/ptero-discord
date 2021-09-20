@@ -30,3 +30,4 @@ USER container
 ENV User=container HOME=/home/container
 
 WORKDIR /home/container
+
