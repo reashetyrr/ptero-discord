@@ -4,7 +4,7 @@ on: push
       
 jobs:
   push:
-    name: "ptero-discord:latest"
+    name: "ptero-discord"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -13,7 +13,7 @@ jobs:
       - uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: reashetyrr/ptero-discord
-          registry: ghcr.io/reashetyrr/ptero-discord
+          registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.REGISTRY_TOKEN }}
           tags: master,latest
