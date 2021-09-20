@@ -19,16 +19,10 @@ jobs:
         with:
           version: "v0.5.1"
           buildkitd-flags: --debug
-      - uses: docker/login-action@v1
+      - uses: mr-smithers-excellent/docker-build-push@v5
         with:
+          image: reashetyrr/ptero-discord
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.REGISTRY_TOKEN }}
-      - uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64
-          push: true
-          tags: |
-            ghcr.io/reashetyrr/ptero-discord:latest
+          tags: master,latest
