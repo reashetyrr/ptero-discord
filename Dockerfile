@@ -23,7 +23,6 @@ RUN source ~/.bashrc \
 
 RUN npm install --unsafe-perm --global discord.js
  
-RUN nodenv init && nodeenv install latest
 RUN pip3 install discord.py 
 
 USER container
