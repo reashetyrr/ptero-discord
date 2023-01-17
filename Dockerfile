@@ -21,10 +21,6 @@ RUN source ~/.bashrc \
  && conda create -q --name testy \
  && conda activate testy
 
-RUN npm install --unsafe-perm --global discord.js
- 
-RUN pip3 install discord.py 
-
 USER container
 ENV User=container HOME=/home/container
 
