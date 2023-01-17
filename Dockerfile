@@ -4,7 +4,7 @@ LABEL author="Reashetyrr" maintainer="Reashetyrr"
 
 RUN apt update \
  && apt upgrade -y \
- && apt install -y curl software-properties-common build-essential libssl-dev make gcc chrome \
+ && apt install -y curl software-properties-common build-essential libssl-dev make gcc \
  && apt update
 
 RUN useradd -d /home/container -m container
